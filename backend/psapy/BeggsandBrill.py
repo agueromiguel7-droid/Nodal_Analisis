@@ -56,8 +56,9 @@ def Pgrad(P, T, oil_rate, wtr_rate, Gor, gas_grav, oil_grav, wtr_grav, d, angle,
     if ((Gor - Rso) < 0):                                        #If gas flowrate is negative, set to zero
         qg = 0
     else:
-        qg = max(0, Bg * (Gor - Rso - Rsw * Wor) * oil_rate / 86400)
-    
+        # Prevent math overflow RuntimeWarning on zero-bounded conditions
+        gas_term = max(0.0, float(Gor) - float(Rso) - float(Rsw) * float(Wor))
+        qg = max(0.0, float(Bg) * gas_term * float(oil_rate) / 86400.0)
         
     #Calculate fluid superficial velocities in ft/s
     Axs = pi / 4 * (d / 12) ** 2                                         #X-sectional area of pipe, ft_
