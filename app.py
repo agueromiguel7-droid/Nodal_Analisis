@@ -318,20 +318,20 @@ if page == "Análisis de Pozo":
                 margin={"l": 40, "r": 40, "t": 40, "b": 40},
                 legend={"orientation": "h", "yanchor": "bottom", "y": 1.02, "xanchor": "right", "x": 1},
                 annotations=[
-                    dict(
-                        x=0.99,
-                        y=0.95,
-                        xref="paper",
-                        yref="paper",
-                        text=f"<b>Modelos Activos:</b><br>IPR: {ipr_model}<br>VLP: {vlp_model}<br>PVT: {pvt_model}",
-                        showarrow=False,
-                        align="right",
-                        bgcolor="rgba(255, 255, 255, 0.8)",
-                        bordercolor="#cbd5e1",
-                        borderwidth=1,
-                        borderpad=4,
-                        font={"size": 11, "color": "#334155"}
-                    )
+                    {
+                        "x": 0.99,
+                        "y": 0.95,
+                        "xref": "paper",
+                        "yref": "paper",
+                        "text": f"<b>Modelos Activos:</b><br>IPR: {ipr_model}<br>VLP: {vlp_model}<br>PVT: {pvt_model}",
+                        "showarrow": False,
+                        "align": "right",
+                        "bgcolor": "rgba(255, 255, 255, 0.8)",
+                        "bordercolor": "#cbd5e1",
+                        "borderwidth": 1,
+                        "borderpad": 4,
+                        "font": {"size": 11, "color": "#334155"}
+                    }
                 ]
             )
             
@@ -429,9 +429,9 @@ elif page == "Esquema del Pozo":
         
         fig.update_layout(
              yaxis={"title": "TVD (ft)", "dtick": 1000},
-             xaxis=dict(visible=False, range=[-5, 5]),
+             xaxis={"visible": False, "range": [-5, 5]},
              height=600,
-             margin=dict(l=20, r=20, t=40, b=20),
+             margin={"l": 20, "r": 20, "t": 40, "b": 20},
              paper_bgcolor='rgba(0,0,0,0)',
              plot_bgcolor='rgba(0,0,0,0)'
         )
