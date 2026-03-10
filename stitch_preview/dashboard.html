@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nodal Pro - Tablero de Operaciones Técnicas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4f1dd7",
+                        "brand-red": "#dc2626",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#151121",
+                        "dark-navy": "#0f172a"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                font-family: 'Space Grotesk', sans-serif;
+            }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sidebar-active {
+            background-color: rgba(220, 38, 38, 0.1);
+            border-right: 3px solid #dc2626;
+            color: #dc2626 !important;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<div class="flex h-screen overflow-hidden">
+<aside class="w-64 flex-shrink-0 bg-white dark:bg-slate-900/50 border-r border-slate-200 dark:border-primary/20 flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<div>
+<h1 class="text-lg font-bold leading-none">Nodal Pro</h1>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Op. Técnicas</p>
+</div>
+</div>
+<nav class="flex-1 px-4 py-4 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg sidebar-active transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Tablero</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/10 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-medium">Análisis de Pozos</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/10 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">schema</span>
+<span class="font-medium">Esquema del Pozo</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/10 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">model_training</span>
+<span class="font-medium">Simulaciones</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/10 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-medium">Reportes</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-primary/20">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+                Nueva Simulación
+            </button>
+</div>
+</aside>
+<main class="flex-1 overflow-y-auto flex flex-col">
+<header class="h-16 border-b border-slate-200 dark:border-primary/20 flex items-center justify-between px-8 bg-white/50 dark:bg-background-dark/50 backdrop-blur-sm sticky top-0 z-10">
+<div class="flex items-center gap-4">
+<h2 class="text-xl font-bold tracking-tight">Resumen del Proyecto</h2>
+<span class="px-2 py-1 rounded bg-emerald-500/10 text-emerald-500 text-xs font-bold uppercase tracking-wider">Sistema en Vivo</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative w-64 hidden xl:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 border-none focus:ring-2 focus:ring-primary text-sm" placeholder="Buscar pozos, datos..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center bg-slate-100 dark:bg-slate-800 p-1 rounded-lg">
+<button class="flex items-center gap-1 px-3 py-1 rounded-md text-xs font-bold transition-all text-slate-400 hover:text-slate-600">
+                            EN
+                        </button>
+<button class="flex items-center gap-1 px-3 py-1 rounded-md text-xs font-bold transition-all bg-white dark:bg-slate-700 shadow-sm text-primary">
+                            ES
+                        </button>
+</div>
+<button class="flex items-center justify-center w-10 h-10 rounded-lg text-dark-navy hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined">light_mode</span>
+</button>
+<div class="h-6 w-[1px] bg-slate-200 dark:bg-slate-700 mx-1"></div>
+<div class="flex items-center gap-3">
+<button class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary/20 border border-primary/40 overflow-hidden">
+<img alt="Perfil de Usuario" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQhA-7MILcFE1azyrwtR8G6LhMoOaIohmZOgmrfsDOdFiEXQcA8Lrx_0nQj4qqEsB2IRLoOryppmhFKFrOh6EG3Izc716nLLHRiG8RssLCQnXkdc2Y91lz8NeZGqMhPRL_WYRscJ83T1twqrw-0VBlpNQNTHREkUbe4uUsQaJPE0NLH950QcX1jR8woQmxW8EahgDNQrFP2zP_LmQrmI-1n0p1sr7h04_85NCbb_OYehAylfGG5L-AqWL0sN_5OmougZmSV0TQ8XE"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="p-8 space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="p-6 rounded-xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-primary/10 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="p-2 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">oil_barrel</span>
+</span>
+<span class="text-emerald-500 flex items-center text-xs font-bold">
+<span class="material-symbols-outlined text-xs">trending_up</span> +2.4%
+                        </span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Producción Total</p>
+<h3 class="text-2xl font-bold mt-1">12.4k <span class="text-sm font-normal text-slate-400">bbl/d</span></h3>
+</div>
+<div class="p-6 rounded-xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-primary/10 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="p-2 rounded-lg bg-blue-500/10 text-blue-500">
+<span class="material-symbols-outlined">check_circle</span>
+</span>
+<span class="text-rose-500 flex items-center text-xs font-bold">
+<span class="material-symbols-outlined text-xs">trending_down</span> -1.2%
+                        </span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Pozos Activos</p>
+<h3 class="text-2xl font-bold mt-1">48<span class="text-slate-400 font-normal">/52</span></h3>
+</div>
+<div class="p-6 rounded-xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-primary/10 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="p-2 rounded-lg bg-amber-500/10 text-amber-500">
+<span class="material-symbols-outlined">compress</span>
+</span>
+<span class="text-emerald-500 flex items-center text-xs font-bold">
+<span class="material-symbols-outlined text-xs">trending_up</span> +0.5%
+                        </span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Presión del Sistema</p>
+<h3 class="text-2xl font-bold mt-1">2,450 <span class="text-sm font-normal text-slate-400">PSI</span></h3>
+</div>
+<div class="p-6 rounded-xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-primary/10 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="p-2 rounded-lg bg-emerald-500/10 text-emerald-500">
+<span class="material-symbols-outlined">bolt</span>
+</span>
+<span class="text-emerald-500 flex items-center text-xs font-bold">
+<span class="material-symbols-outlined text-xs">trending_up</span> +0.1%
+                        </span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Tiempo de Actividad</p>
+<h3 class="text-2xl font-bold mt-1">99.8%</h3>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<div class="p-6 rounded-xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-primary/10 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-bold">Tendencia de Producción</h4>
+<select class="bg-slate-100 dark:bg-slate-800 border-none rounded-lg text-xs font-bold py-1 px-3">
+<option>Últimos 7 Días</option>
+<option>Últimos 30 Días</option>
+</select>
+</div>
+<div class="h-48 w-full relative">
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 40">
+<defs>
+<linearGradient id="gradient-area" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#4f1dd7" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#4f1dd7" stop-opacity="0"></stop>
+</linearGradient>
+</defs>
+<path d="M0 35 Q 15 25, 25 28 T 45 20 T 65 25 T 85 10 T 100 15 V 40 H 0 Z" fill="url(#gradient-area)"></path>
+<path d="M0 35 Q 15 25, 25 28 T 45 20 T 65 25 T 85 10 T 100 15" fill="none" stroke="#4f1dd7" stroke-width="1.5"></path>
+</svg>
+<div class="flex justify-between mt-4 text-[10px] text-slate-500 uppercase tracking-widest font-bold">
+<span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span>
+</div>
+</div>
+</div>
+<div class="p-6 rounded-xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-primary/10 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-bold">Eficiencia Energética</h4>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="text-xs font-bold text-slate-500">Optimizado</span>
+</div>
+</div>
+<div class="grid grid-cols-6 items-end gap-3 h-48 px-2">
+<div class="h-full bg-slate-200 dark:bg-slate-800 rounded-t-lg relative group">
+<div class="absolute bottom-0 w-full bg-primary h-full rounded-t-lg transition-all duration-500" style="height: 65%"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-500 font-bold">00:00</span>
+</div>
+<div class="h-full bg-slate-200 dark:bg-slate-800 rounded-t-lg relative">
+<div class="absolute bottom-0 w-full bg-primary h-full rounded-t-lg transition-all duration-500" style="height: 45%"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-500 font-bold">04:00</span>
+</div>
+<div class="h-full bg-slate-200 dark:bg-slate-800 rounded-t-lg relative">
+<div class="absolute bottom-0 w-full bg-primary h-full rounded-t-lg transition-all duration-500" style="height: 85%"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-500 font-bold">08:00</span>
+</div>
+<div class="h-full bg-slate-200 dark:bg-slate-800 rounded-t-lg relative">
+<div class="absolute bottom-0 w-full bg-primary h-full rounded-t-lg transition-all duration-500" style="height: 55%"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-500 font-bold">12:00</span>
+</div>
+<div class="h-full bg-slate-200 dark:bg-slate-800 rounded-t-lg relative">
+<div class="absolute bottom-0 w-full bg-primary h-full rounded-t-lg transition-all duration-500" style="height: 92%"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-500 font-bold">16:00</span>
+</div>
+<div class="h-full bg-slate-200 dark:bg-slate-800 rounded-t-lg relative">
+<div class="absolute bottom-0 w-full bg-primary h-full rounded-t-lg transition-all duration-500" style="height: 35%"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-500 font-bold">20:00</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-primary/10 rounded-xl overflow-hidden shadow-sm">
+<div class="px-6 py-4 border-b border-slate-200 dark:border-primary/10 flex justify-between items-center">
+<h4 class="font-bold">Operaciones de Pozos Activos</h4>
+<button class="text-primary text-sm font-bold hover:underline">Ver Todos los Pozos</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-slate-50 dark:bg-slate-800/50 text-[10px] uppercase tracking-widest font-bold text-slate-500">
+<tr>
+<th class="px-6 py-3">ID del Pozo</th>
+<th class="px-6 py-3">Estado</th>
+<th class="px-6 py-3 text-right">Tasa de Flujo (m³/d)</th>
+<th class="px-6 py-3 text-right">Presión de Fondo</th>
+<th class="px-6 py-3 text-right">Levantamiento por Gas</th>
+<th class="px-6 py-3">Última Prueba</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-primary/10 text-sm">
+<tr class="hover:bg-slate-50 dark:hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-semibold">NP-ALPHA-01</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-400">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Activo
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right font-mono">245.8</td>
+<td class="px-6 py-4 text-right font-mono">1,820 PSI</td>
+<td class="px-6 py-4 text-right font-mono text-slate-500">12.4</td>
+<td class="px-6 py-4 text-slate-500">hace 2h</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-semibold">NP-ALPHA-02</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-400">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Activo
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right font-mono">198.2</td>
+<td class="px-6 py-4 text-right font-mono">1,750 PSI</td>
+<td class="px-6 py-4 text-right font-mono text-slate-500">10.1</td>
+<td class="px-6 py-4 text-slate-500">hace 4h</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-semibold">NP-BETA-05</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-700 dark:bg-amber-500/20 dark:text-amber-400">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Mantenimiento
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right font-mono">--</td>
+<td class="px-6 py-4 text-right font-mono">2,100 PSI</td>
+<td class="px-6 py-4 text-right font-mono text-slate-500">0.0</td>
+<td class="px-6 py-4 text-slate-500">hace 12m</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-semibold">NP-GAMMA-09</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-400">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Activo
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right font-mono">312.5</td>
+<td class="px-6 py-4 text-right font-mono">1,940 PSI</td>
+<td class="px-6 py-4 text-right font-mono text-slate-500">15.8</td>
+<td class="px-6 py-4 text-slate-500">hace 1h</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 font-semibold">NP-DELTA-03</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-100 text-rose-700 dark:bg-rose-500/20 dark:text-rose-400">
+<span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span> Fuera de Línea
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right font-mono">0.0</td>
+<td class="px-6 py-4 text-right font-mono">540 PSI</td>
+<td class="px-6 py-4 text-right font-mono text-slate-500">0.0</td>
+<td class="px-6 py-4 text-slate-500">hace 2d</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4f1dd7",
+                        "navy-dark": "#0a192f",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#151121",
+                        "nodal-red": "#e11d48",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2d2938;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased font-display">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 px-6 py-3 bg-white dark:bg-background-dark/50 backdrop-blur-md sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">account_tree</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight tracking-tight">Nodal Pro</h2>
+</div>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium" href="#">Dashboard</a>
+<a class="text-primary text-sm font-semibold" href="#">Reportes</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium" href="#">Proyectos</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium" href="#">Equipo</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex bg-slate-100 dark:bg-slate-800 rounded-lg p-1 border border-slate-200 dark:border-slate-700">
+<button class="px-3 py-1 text-[10px] font-bold rounded-md transition-all text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">EN</button>
+<button class="px-3 py-1 text-[10px] font-bold rounded-md transition-all bg-white dark:bg-slate-700 text-primary shadow-sm">ES</button>
+</div>
+<button class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800/50 text-slate-600 dark:text-slate-300 hover:bg-primary/10 transition-colors" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-symbols-outlined dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined hidden dark:block">light_mode</span>
+</button>
+<label class="hidden lg:flex items-center bg-slate-100 dark:bg-slate-800/50 rounded-xl px-3 py-1.5 w-48 border border-transparent focus-within:border-primary transition-all">
+<span class="material-symbols-outlined text-slate-400 text-lg">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-slate-500" placeholder="Buscar reportes..." type="text"/>
+</label>
+<div class="flex gap-2">
+<button class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800/50 text-slate-600 dark:text-slate-300 hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+<div class="size-10 rounded-full border-2 border-primary/20 p-0.5">
+<img alt="User Avatar" class="rounded-full w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY2R_atAjQUbf4ch5Ph3Hdc14vK6-pPFlU0nydxuxubcNjxTNru7H37GOcrSwn5ru9AV_FU1VtEPvUBq8ZPx-b7jTVRemwbL2-qKoVu8hEY_Ym_a4WaBZ3Q8umfyle8EgMRBcFzsPxs8M-j26gMHjXmSXJwLs3D60POfw-Iz9E6gOr92P0NotfFC16DyEoMrxNhEH09ouKV1yTOH25tSyxCwwET8ggTRRdBI8f_um87aevUUsupt3ZrWwF22GCjSz9DdVSj8obuyE"/>
+</div>
+</div>
+</header>
+<main class="flex flex-1 overflow-hidden">
+<aside class="w-80 flex-shrink-0 border-r border-slate-200 dark:border-slate-800 flex flex-col bg-white dark:bg-background-dark/30">
+<div class="p-6 flex flex-col gap-6 h-full overflow-y-auto custom-scrollbar">
+<div>
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Borrador de Reporte</h3>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold">V2.1 PRO</span>
+</div>
+<h1 class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-1">Optimización de Pozo</h1>
+<p class="text-sm text-slate-500">Suite Navy Blue - Análisis Nodal</p>
+</div>
+<div class="flex flex-col gap-1">
+<div class="group flex items-center gap-3 px-4 py-3 rounded-xl bg-nodal-red text-white cursor-pointer transition-all shadow-lg shadow-rose-500/20">
+<span class="material-symbols-outlined text-lg">description</span>
+<span class="text-sm font-semibold">Resumen Ejecutivo</span>
+<span class="material-symbols-outlined text-sm ml-auto opacity-60">check_circle</span>
+</div>
+<div class="group flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/50 text-slate-700 dark:text-slate-300 cursor-pointer transition-all">
+<span class="material-symbols-outlined text-lg">settings_input_component</span>
+<span class="text-sm font-medium">Configuración de Pozo</span>
+</div>
+<div class="group flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/50 text-slate-700 dark:text-slate-300 cursor-pointer transition-all">
+<span class="material-symbols-outlined text-lg">analytics</span>
+<span class="text-sm font-medium">Análisis de Curvas VLP/IPR</span>
+</div>
+<div class="group flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/50 text-slate-700 dark:text-slate-300 cursor-pointer transition-all">
+<span class="material-symbols-outlined text-lg">water_drop</span>
+<span class="text-sm font-medium">Propiedades de Fluidos</span>
+</div>
+<div class="group flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/50 text-slate-700 dark:text-slate-300 cursor-pointer transition-all">
+<span class="material-symbols-outlined text-lg">monitoring</span>
+<span class="text-sm font-medium">Puntos de Operación</span>
+</div>
+<div class="group flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/50 text-slate-700 dark:text-slate-300 cursor-pointer transition-all">
+<span class="material-symbols-outlined text-lg">task_alt</span>
+<span class="text-sm font-medium">Conclusiones y Recomendaciones</span>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-3">
+<button class="w-full py-3 px-4 bg-navy-dark hover:bg-slate-900 text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-slate-900/25 border border-slate-700">
+<span class="material-symbols-outlined text-xl">picture_as_pdf</span>
+                        Exportar Reporte PDF
+                    </button>
+<button class="w-full py-2.5 px-4 bg-slate-100 dark:bg-slate-800/50 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined text-xl">ios_share</span>
+                        Compartir Reporte
+                    </button>
+<div class="mt-4 flex flex-col gap-2">
+<a class="flex items-center gap-3 text-slate-500 hover:text-primary transition-colors px-2" href="#">
+<span class="material-symbols-outlined text-lg">settings_suggest</span>
+<span class="text-xs font-semibold">Ajustes de Generación</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 hover:text-primary transition-colors px-2" href="#">
+<span class="material-symbols-outlined text-lg">help_outline</span>
+<span class="text-xs font-semibold">Documentación Técnica</span>
+</a>
+</div>
+</div>
+</div>
+</aside>
+<section class="flex-1 flex flex-col bg-slate-50 dark:bg-background-dark/10 overflow-hidden">
+<div class="px-8 pt-6 pb-2">
+<div class="flex items-center gap-2 text-xs font-medium text-slate-400 mb-4">
+<span>Reportes</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span>Generador</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="text-primary">Vista Previa Actual</span>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+<div>
+<h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">Vista Previa del Reporte Técnico</h2>
+<p class="text-sm text-slate-500 mt-1">Revise el borrador antes de la generación final</p>
+</div>
+<div class="flex bg-slate-200 dark:bg-slate-800/80 p-1 rounded-xl">
+<button class="px-6 py-2 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm font-bold shadow-sm">Vista Previa</button>
+<button class="px-6 py-2 rounded-lg text-slate-500 dark:text-slate-400 text-sm font-semibold hover:text-slate-700 dark:hover:text-slate-200">Editor</button>
+<button class="px-6 py-2 rounded-lg text-slate-500 dark:text-slate-400 text-sm font-semibold hover:text-slate-700 dark:hover:text-slate-200">Historial</button>
+</div>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto px-8 pb-12 custom-scrollbar">
+<div class="max-w-[850px] mx-auto bg-white dark:bg-slate-900 shadow-2xl rounded-2xl min-h-[1100px] p-16 border border-slate-200 dark:border-slate-800">
+<div class="flex flex-col items-center text-center mb-16">
+<div class="size-16 bg-primary rounded-2xl flex items-center justify-center text-white mb-6">
+<span class="material-symbols-outlined text-4xl">oil_barrel</span>
+</div>
+<h1 class="text-4xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tighter leading-tight">
+                            Estrategia de Optimización <br/>
+<span class="text-primary">de Producción Nodal 2024</span>
+</h1>
+<div class="h-1.5 w-24 bg-primary rounded-full mb-8"></div>
+<p class="text-lg text-slate-500 max-w-lg leading-relaxed">
+                            Análisis técnico exhaustivo de la eficiencia de levantamiento y optimización de flujos en sistemas de producción de petróleo y gas.
+                        </p>
+</div>
+<div class="grid grid-cols-2 gap-12 mb-16 p-8 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
+<div>
+<h4 class="text-xs font-bold uppercase tracking-widest text-primary mb-2">Preparado por</h4>
+<p class="text-slate-900 dark:text-slate-100 font-bold">Equipo de Ingeniería Nodal Pro</p>
+<p class="text-sm text-slate-500">División de Optimización de Pozos</p>
+</div>
+<div>
+<h4 class="text-xs font-bold uppercase tracking-widest text-primary mb-2">ID de Referencia</h4>
+<p class="text-slate-900 dark:text-slate-100 font-bold">NP-WELL-2024-082</p>
+<p class="text-sm text-slate-500">Clasificación: Confidencial Técnico</p>
+</div>
+</div>
+<div class="space-y-8">
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+<span class="text-primary">01.</span> Resumen Ejecutivo
+                        </h2>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
+                            Este reporte detalla la transición de la arquitectura de producción actual hacia un sistema de optimización basado en nodos utilizando la suite Nodal Pro. Los resultados indican un incremento potencial del <span class="text-primary font-bold">38% en la eficiencia operativa</span> y una reducción significativa en las restricciones de flujo en boca de pozo.
+                        </p>
+<div class="aspect-video w-full rounded-2xl bg-slate-100 dark:bg-slate-800 overflow-hidden relative border border-slate-200 dark:border-slate-700">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-full h-full flex items-end justify-around px-8 pb-8">
+<div class="w-12 bg-primary/40 rounded-t-lg h-2/3"></div>
+<div class="w-12 bg-primary/60 rounded-t-lg h-3/4"></div>
+<div class="w-12 bg-primary rounded-t-lg h-full"></div>
+<div class="w-12 bg-primary/50 rounded-t-lg h-1/2"></div>
+<div class="w-12 bg-primary/80 rounded-t-lg h-5/6"></div>
+</div>
+</div>
+<div class="absolute top-6 left-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<span class="text-xs font-bold uppercase text-slate-500">Proyecciones de Producción Nodal</span>
+</div>
+</div>
+<div class="space-y-6 pt-6">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Hallazgos Principales</h3>
+<ul class="space-y-4">
+<li class="flex gap-4">
+<div class="size-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-sm text-primary">done</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400">La implementación de protocolos de balanceo de presión redujo los tiempos de estabilización en 4.5 horas.</p>
+</li>
+<li class="flex gap-4">
+<div class="size-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-sm text-primary">done</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400">Nuevos marcos de seguridad operativa alineados con estándares API RP 14E en todos los nodos críticos.</p>
+</li>
+<li class="flex gap-4">
+<div class="size-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-sm text-primary">done</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400">Redundancia en el monitoreo de fondo de pozo alcanzó un 99.98% de disponibilidad durante pruebas de estrés.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="mt-24 pt-8 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center text-[10px] text-slate-400 font-medium uppercase tracking-widest">
+<span>Generado por Nodal Pro Suite</span>
+<span>Página 1 de 24</span>
+<span>División de Ingeniería de Petróleos</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+
+</body></html>

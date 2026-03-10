@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4f1dd7",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#151121",
+                        "nodal-red": "#ef4444"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Nodal Pro - Resultados de Simulación</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<header class="flex items-center justify-between border-b border-primary/20 bg-white dark:bg-background-dark px-6 py-4 lg:px-12 sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<div class="size-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill="currentColor" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold tracking-tight">Nodal Pro</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium" href="#">Dashboard</a>
+<a class="text-nodal-red text-sm font-bold border-b-2 border-nodal-red pb-1" href="#">Simulaciones</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium" href="#">Pozos</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium" href="#">Reportes</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg p-1 mr-2">
+<button class="px-2 py-1 text-[10px] font-bold rounded transition-colors text-slate-400">EN</button>
+<button class="px-2 py-1 text-[10px] font-bold rounded bg-white dark:bg-primary shadow-sm text-primary dark:text-white">ES</button>
+</div>
+<button class="p-2 rounded-lg bg-slate-100 dark:bg-primary/10 text-slate-600 dark:text-primary hover:bg-primary hover:text-white transition-all" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-symbols-outlined text-[20px] dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined text-[20px] hidden dark:block">light_mode</span>
+</button>
+<button class="p-2 rounded-lg bg-slate-100 dark:bg-primary/10 text-slate-600 dark:text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<div class="size-10 rounded-full border-2 border-primary/30 overflow-hidden ml-2">
+<img alt="Perfil del ingeniero" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmrdsjgxnnXa_Jt70MsSrjYfViP02013D0Bu_-5AJHC4Eos6VnxTHPGql2EXe2NOCNf04rTsAWwvWgMjLZvwYDOvzUPKgsCaS23ZGhU6RRV11huiiAIRZPyRl3d1z5bNVTDzYf-zS0yCOOvctiUqeDV9krdCUO2TuKogMkiZlnuvq0obI167O5Qqhl8dreQyW-xypPWoKDXLupIwZu8jyebwxBwVTjZn37hzKn7yDumL33HQN1KGun5CR9yHshZRB3thehntt0goY"/>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 py-8">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-sm">science</span>
+<span class="text-sm font-bold tracking-widest uppercase">Resultados de Simulación</span>
+</div>
+<h1 class="text-3xl font-black text-slate-900 dark:text-white">Análisis de Pozo: SCREEN_14</h1>
+<p class="text-slate-600 dark:text-slate-400">Análisis y Optimización de Curvas IPR vs VLP</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg border border-primary/50 text-primary font-bold text-sm hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-[20px]">refresh</span> Re-ejecutar
+            </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white font-bold text-sm hover:opacity-90 transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[20px]">download</span> Exportar Reporte
+            </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+<aside class="lg:col-span-1 flex flex-col gap-6">
+<div class="bg-white dark:bg-primary/5 border border-primary/10 rounded-xl p-6 shadow-sm">
+<h3 class="text-xs font-bold text-primary uppercase tracking-wider mb-4">Desempeño Clave</h3>
+<div class="space-y-6">
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-1">Presión de Operación</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-bold text-slate-900 dark:text-white">1,840</span>
+<span class="text-slate-500 text-sm">psia</span>
+</div>
+</div>
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-1">Tasa de Operación</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-bold text-slate-900 dark:text-white">2,450</span>
+<span class="text-slate-500 text-sm">STB/d</span>
+</div>
+<div class="flex items-center gap-1 text-emerald-500 text-xs font-bold mt-1">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+<span>2.4% vs Anterior</span>
+</div>
+</div>
+<div class="pt-4 border-t border-primary/10">
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-1">Potencial AOF</p>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold text-primary">5,120</span>
+<span class="text-slate-500 text-sm">STB/d</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-primary/5 border border-primary/10 rounded-xl p-6 shadow-sm">
+<h3 class="text-xs font-bold text-primary uppercase tracking-wider mb-4">Parámetros del Pozo</h3>
+<div class="space-y-3">
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-500 dark:text-slate-400">Presión Reservorio</span>
+<span class="font-medium">3,200 psia</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-500 dark:text-slate-400">Corte de Agua</span>
+<span class="font-medium">15 %</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-500 dark:text-slate-400">GOR</span>
+<span class="font-medium">450 scf/stb</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-500 dark:text-slate-400">ID Tubería</span>
+<span class="font-medium">3.500 in</span>
+</div>
+</div>
+</div>
+</aside>
+<section class="lg:col-span-3 flex flex-col gap-6">
+<div class="bg-white dark:bg-primary/5 border border-primary/10 rounded-xl p-6 flex-1 min-h-[450px] relative overflow-hidden shadow-sm">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h2 class="text-lg font-bold">Análisis Nodal: IPR vs VLP</h2>
+<p class="text-sm text-slate-500 dark:text-slate-400">Nodo Solución: Fondo de Pozo</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<div class="size-3 rounded-full bg-primary shadow-sm shadow-primary"></div>
+<span class="text-xs font-semibold">Curva IPR</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="size-3 rounded-full bg-slate-400 shadow-sm shadow-slate-400"></div>
+<span class="text-xs font-semibold">Curva VLP</span>
+</div>
+</div>
+</div>
+<div class="relative w-full h-80 px-10">
+<div class="absolute left-0 h-full flex flex-col justify-between py-2 text-[10px] font-bold text-slate-400">
+<span>4000</span>
+<span>3000</span>
+<span>2000</span>
+<span>1000</span>
+<span>0</span>
+</div>
+<div class="w-full h-full border-l border-b border-primary/20 relative">
+<div class="absolute inset-0 grid grid-rows-4">
+<div class="border-t border-primary/5"></div>
+<div class="border-t border-primary/5"></div>
+<div class="border-t border-primary/5"></div>
+<div class="border-t border-primary/5"></div>
+</div>
+<svg class="absolute inset-0 w-full h-full overflow-visible" preserveAspectRatio="none">
+<path d="M 0 280 Q 200 240, 500 120" fill="none" stroke="#94a3b8" stroke-dasharray="0" stroke-width="4"></path>
+</svg>
+<svg class="absolute inset-0 w-full h-full overflow-visible" preserveAspectRatio="none">
+<path d="M 0 50 Q 250 80, 700 320" fill="none" stroke="url(#gradient-primary)" stroke-width="4"></path>
+<defs>
+<linearGradient id="gradient-primary" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#4f1dd7"></stop>
+<stop offset="100%" stop-color="#7c3aed"></stop>
+</linearGradient>
+</defs>
+</svg>
+<div class="absolute" style="left: 45%; top: 40%;">
+<div class="relative">
+<div class="size-4 bg-white border-2 border-primary rounded-full -translate-x-1/2 -translate-y-1/2 z-10"></div>
+<div class="absolute top-4 left-4 bg-background-dark/90 backdrop-blur border border-primary/30 p-2 rounded-lg text-[10px] whitespace-nowrap text-white">
+<p class="font-bold text-primary">Punto Solución</p>
+<p>Tasa: 2450 STB/d</p>
+<p>Pwf: 1840 psia</p>
+</div>
+<div class="absolute top-0 right-1/2 border-l border-dashed border-primary/40 h-[100vh]"></div>
+<div class="absolute left-0 bottom-1/2 border-b border-dashed border-primary/40 w-[100vw] translate-x-[-100%]"></div>
+</div>
+</div>
+</div>
+<div class="w-full flex justify-between pt-2 px-2 text-[10px] font-bold text-slate-400">
+<span>0</span>
+<span>1000</span>
+<span>2000</span>
+<span>3000</span>
+<span>4000</span>
+<span>5000</span>
+</div>
+</div>
+<div class="absolute bottom-4 right-6 text-[10px] uppercase font-bold text-slate-400 tracking-widest">
+                    Tasa de Líquido (STB/d)
+                </div>
+<div class="absolute left-2 top-1/2 -rotate-90 text-[10px] uppercase font-bold text-slate-400 tracking-widest">
+                    Presión (psia)
+                </div>
+</div>
+</section>
+</div>
+<section class="mt-8">
+<div class="bg-white dark:bg-primary/5 border border-primary/10 rounded-xl overflow-hidden shadow-sm">
+<div class="px-6 py-4 border-b border-primary/10 flex items-center justify-between">
+<h3 class="font-bold">Análisis de Sensibilidad: Variación de Corte de Agua</h3>
+<div class="flex gap-2">
+<span class="px-2 py-1 rounded bg-primary/20 text-primary text-[10px] font-black uppercase">Modelo Activo</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-slate-50 dark:bg-primary/10 text-slate-500 dark:text-slate-400 text-xs font-bold uppercase tracking-wider">
+<tr>
+<th class="px-6 py-3">Corte Agua (%)</th>
+<th class="px-6 py-3">Presión Operación (psia)</th>
+<th class="px-6 py-3">Tasa Operación (STB/d)</th>
+<th class="px-6 py-3">Tasa Petróleo (STB/d)</th>
+<th class="px-6 py-3">Tasa Gas (Mscf/d)</th>
+<th class="px-6 py-3">Estado</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/5">
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 text-sm font-semibold">0%</td>
+<td class="px-6 py-4 text-sm">1,910</td>
+<td class="px-6 py-4 text-sm">2,680</td>
+<td class="px-6 py-4 text-sm">2,680</td>
+<td class="px-6 py-4 text-sm">1,206</td>
+<td class="px-6 py-4">
+<span class="text-emerald-500 material-symbols-outlined text-[18px]">check_circle</span>
+</td>
+</tr>
+<tr class="bg-primary/5 border-l-4 border-primary">
+<td class="px-6 py-4 text-sm font-bold">15% (Actual)</td>
+<td class="px-6 py-4 text-sm font-bold">1,840</td>
+<td class="px-6 py-4 text-sm font-bold">2,450</td>
+<td class="px-6 py-4 text-sm font-bold">2,083</td>
+<td class="px-6 py-4 text-sm font-bold">937</td>
+<td class="px-6 py-4">
+<span class="text-primary material-symbols-outlined text-[18px]">adjust</span>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 text-sm font-semibold">30%</td>
+<td class="px-6 py-4 text-sm">1,720</td>
+<td class="px-6 py-4 text-sm">2,120</td>
+<td class="px-6 py-4 text-sm">1,484</td>
+<td class="px-6 py-4 text-sm">668</td>
+<td class="px-6 py-4">
+<span class="text-emerald-500 material-symbols-outlined text-[18px]">check_circle</span>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 text-sm font-semibold">50%</td>
+<td class="px-6 py-4 text-sm">1,550</td>
+<td class="px-6 py-4 text-sm">1,640</td>
+<td class="px-6 py-4 text-sm">820</td>
+<td class="px-6 py-4 text-sm">369</td>
+<td class="px-6 py-4">
+<span class="text-amber-500 material-symbols-outlined text-[18px]">warning</span>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 text-sm font-semibold">75%</td>
+<td class="px-6 py-4 text-sm">1,410</td>
+<td class="px-6 py-4 text-sm">850</td>
+<td class="px-6 py-4 text-sm">213</td>
+<td class="px-6 py-4 text-sm">96</td>
+<td class="px-6 py-4">
+<span class="text-rose-500 material-symbols-outlined text-[18px]">error</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+<footer class="mt-12 py-8 px-6 border-t border-primary/10 text-center bg-white dark:bg-background-dark">
+<p class="text-sm text-slate-500 dark:text-slate-400">© 2024 Nodal Pro Engineering Suite • v4.2.1 • Licencia para Global Energy Corp</p>
+</footer>
+
+</body></html>

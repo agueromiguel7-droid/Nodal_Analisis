@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nodal Pro - Esquema del Pozo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4f1dd7",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#151121",
+                        "panel-dark": "#1e1a2d",
+                        "border-dark": "#2d2938",
+                        "border-light": "#e2e8f0",
+                        "accent-red": "#ef4444"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                font-family: "Space Grotesk", sans-serif;
+            }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .well-gradient {
+            background: linear-gradient(180deg, rgba(79, 29, 215, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+        }
+        .dark .well-gradient {
+            background: linear-gradient(180deg, rgba(79, 29, 215, 0.1) 0%, rgba(21, 17, 33, 0) 100%);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex flex-col w-full min-h-screen overflow-x-hidden">
+<header class="flex items-center justify-between border-b border-border-light dark:border-border-dark px-6 md:px-10 py-4 bg-white dark:bg-background-dark/50 backdrop-blur-md sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Nodal Pro</h2>
+</div>
+<nav class="hidden lg:flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-white text-sm font-medium transition-colors" href="#">Panel de Control</a>
+<a class="text-primary dark:text-white text-sm font-medium transition-colors border-b-2 border-primary pb-1" href="#">Análisis de Pozos</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-white text-sm font-medium transition-colors" href="#">Simulaciones</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-white text-sm font-medium transition-colors" href="#">Reportes</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center bg-slate-100 dark:bg-panel-dark rounded-lg p-1 mr-2">
+<button class="px-3 py-1 text-xs font-bold rounded text-slate-400">EN</button>
+<button class="px-3 py-1 text-xs font-bold rounded bg-white dark:bg-primary shadow-sm text-primary dark:text-white">ES</button>
+</div>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-panel-dark rounded-xl transition-colors text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined">light_mode</span>
+</button>
+<div class="h-6 w-px bg-border-light dark:border-border-dark"></div>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-panel-dark rounded-xl transition-colors">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">settings</span>
+</button>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-panel-dark rounded-xl transition-colors relative">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">notifications</span>
+<span class="absolute top-2.5 right-2.5 size-2 bg-primary rounded-full ring-2 ring-white dark:ring-background-dark"></span>
+</button>
+<div class="size-9 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold">
+                JD
+            </div>
+</div>
+</header>
+<main class="flex flex-1 flex-col lg:flex-row">
+<aside class="w-full lg:w-72 border-r border-border-light dark:border-border-dark bg-white dark:bg-background-dark/30 p-5 space-y-8">
+<div>
+<h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest px-3 mb-4">Estado del Pozo</h3>
+<div class="flex flex-col gap-1">
+<div class="px-3 py-3 bg-slate-50 dark:bg-panel-dark/40 rounded-xl border border-border-light dark:border-border-dark">
+<h1 class="text-lg font-bold text-slate-900 dark:text-white">NP-204</h1>
+<p class="text-emerald-600 dark:text-emerald-500 text-xs font-medium flex items-center gap-1.5 mt-1">
+<span class="size-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                            Producción Activa
+                        </p>
+</div>
+</div>
+</div>
+<nav class="space-y-1.5">
+<h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest px-3 mb-4">Navegación</h3>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-panel-dark hover:text-primary dark:hover:text-white rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-semibold">Resumen</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 bg-accent-red text-white rounded-xl shadow-lg shadow-red-500/20" href="#">
+<span class="material-symbols-outlined">layers</span>
+<span class="text-sm font-semibold">Esquema del Pozo</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-panel-dark hover:text-primary dark:hover:text-white rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">opacity</span>
+<span class="text-sm font-semibold">Propiedades del Fluido</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-panel-dark hover:text-primary dark:hover:text-white rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="text-sm font-semibold">Rendimiento de Afluencia</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-panel-dark hover:text-primary dark:hover:text-white rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">show_chart</span>
+<span class="text-sm font-semibold">Curva de Salida (VLP)</span>
+</a>
+</nav>
+</aside>
+<div class="flex-1 flex flex-col lg:flex-row overflow-hidden">
+<div class="flex-1 p-6 lg:p-10 overflow-y-auto max-w-5xl">
+<div class="mb-10">
+<h2 class="text-3xl font-black text-slate-900 dark:text-white mb-2">Configuración del Pozo</h2>
+<p class="text-slate-500 dark:text-slate-400">Defina las propiedades mecánicas y componentes de fondo para el cálculo nodal.</p>
+</div>
+<div class="flex border-b border-border-light dark:border-border-dark mb-8 overflow-x-auto whitespace-nowrap scrollbar-hide">
+<button class="px-6 py-4 text-sm font-bold border-b-2 border-primary text-primary dark:text-white">Detalles del Casing</button>
+<button class="px-6 py-4 text-sm font-bold border-b-2 border-transparent text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">Detalles de Tubería</button>
+<button class="px-6 py-4 text-sm font-bold border-b-2 border-transparent text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">Perforaciones</button>
+<button class="px-6 py-4 text-sm font-bold border-b-2 border-transparent text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">Levantamiento Artificial</button>
+</div>
+<div class="space-y-10">
+<section>
+<div class="flex items-center justify-between mb-5">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">view_column</span>
+                                Detalles de la Sarta de Revestimiento
+                            </h3>
+<button class="text-sm text-primary font-bold hover:underline flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+                                Añadir Sarta
+                            </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 bg-white dark:bg-panel-dark/40 p-6 rounded-2xl border border-border-light dark:border-border-dark shadow-sm">
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Prof. Superior (ft)</label>
+<input class="w-full bg-slate-50 dark:bg-panel-dark border-border-light dark:border-border-dark rounded-xl text-sm text-slate-900 dark:text-white focus:ring-primary focus:border-primary" type="number" value="0"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Prof. Inferior (ft)</label>
+<input class="w-full bg-slate-50 dark:bg-panel-dark border-border-light dark:border-border-dark rounded-xl text-sm text-slate-900 dark:text-white focus:ring-primary focus:border-primary" type="number" value="8500"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">DI (pulgadas)</label>
+<input class="w-full bg-slate-50 dark:bg-panel-dark border-border-light dark:border-border-dark rounded-xl text-sm text-slate-900 dark:text-white focus:ring-primary focus:border-primary" step="0.01" type="number" value="6.276"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Rugosidad</label>
+<input class="w-full bg-slate-50 dark:bg-panel-dark border-border-light dark:border-border-dark rounded-xl text-sm text-slate-900 dark:text-white focus:ring-primary focus:border-primary" step="0.0001" type="number" value="0.0006"/>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center justify-between mb-5">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">plumbing</span>
+                                Detalles de la Sarta de Producción
+                            </h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 bg-white dark:bg-panel-dark/40 p-6 rounded-2xl border border-border-light dark:border-border-dark shadow-sm">
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Longitud (ft)</label>
+<input class="w-full bg-slate-50 dark:bg-panel-dark border-border-light dark:border-border-dark rounded-xl text-sm text-slate-900 dark:text-white focus:ring-primary focus:border-primary" type="number" value="8200"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">DE (pulgadas)</label>
+<input class="w-full bg-slate-50 dark:bg-panel-dark border-border-light dark:border-border-dark rounded-xl text-sm text-slate-900 dark:text-white focus:ring-primary focus:border-primary" step="0.01" type="number" value="3.500"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">DI (pulgadas)</label>
+<input class="w-full bg-slate-50 dark:bg-panel-dark border-border-light dark:border-border-dark rounded-xl text-sm text-slate-900 dark:text-white focus:ring-primary focus:border-primary" step="0.01" type="number" value="2.992"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Rugosidad</label>
+<input class="w-full bg-slate-50 dark:bg-panel-dark border-border-light dark:border-border-dark rounded-xl text-sm text-slate-900 dark:text-white focus:ring-primary focus:border-primary" step="0.0001" type="number" value="0.0006"/>
+</div>
+</div>
+</section>
+<section>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-5 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">dynamic_feed</span>
+                            Equipos y Completación
+                        </h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-5 bg-white dark:bg-panel-dark/60 rounded-xl border-l-4 border-primary border-y border-r border-border-light dark:border-border-dark shadow-sm">
+<div class="flex items-center gap-4">
+<div class="p-2.5 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">adjust</span>
+</div>
+<div>
+<p class="font-bold text-sm text-slate-900 dark:text-white">Empacadura (Packer)</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Asentada a 8,150 ft MD</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+<div class="flex items-center justify-between p-5 bg-white dark:bg-panel-dark/60 rounded-xl border-l-4 border-slate-400 border-y border-r border-border-light dark:border-border-dark shadow-sm">
+<div class="flex items-center gap-4">
+<div class="p-2.5 bg-slate-100 dark:bg-slate-600/20 rounded-lg text-slate-500">
+<span class="material-symbols-outlined">water_drop</span>
+</div>
+<div>
+<p class="font-bold text-sm text-slate-900 dark:text-white">Bomba Electrosumergible (ESP)</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Profundidad: 7,800 ft • 50 Etapas</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+</section>
+<div class="flex justify-end gap-4 pt-8 border-t border-border-light dark:border-border-dark">
+<button class="px-6 py-3 rounded-xl border border-border-light dark:border-border-dark text-slate-600 dark:text-slate-300 font-bold hover:bg-slate-50 dark:hover:bg-panel-dark transition-colors">Restablecer</button>
+<button class="px-10 py-3 rounded-xl bg-primary text-white font-bold hover:shadow-xl hover:shadow-primary/30 transition-all">Guardar Cambios</button>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-[480px] bg-slate-50 dark:bg-panel-dark/20 border-l border-border-light dark:border-border-dark flex flex-col">
+<div class="p-6 border-b border-border-light dark:border-border-dark flex items-center justify-between bg-white dark:bg-transparent">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Esquema en Vivo</h3>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg bg-white dark:bg-panel-dark border border-border-light dark:border-none text-slate-500 hover:text-primary transition-colors"><span class="material-symbols-outlined text-lg">zoom_in</span></button>
+<button class="p-2 rounded-lg bg-white dark:bg-panel-dark border border-border-light dark:border-none text-slate-500 hover:text-primary transition-colors"><span class="material-symbols-outlined text-lg">zoom_out</span></button>
+</div>
+</div>
+<div class="flex-1 relative flex justify-center py-12 overflow-hidden well-gradient">
+<div class="absolute left-8 top-12 bottom-12 w-px bg-slate-300 dark:bg-slate-700 flex flex-col justify-between text-[10px] text-slate-400 dark:text-slate-500 font-mono py-2">
+<span>0 ft</span>
+<span>2,000 ft</span>
+<span>4,000 ft</span>
+<span>6,000 ft</span>
+<span>8,000 ft</span>
+<span>10,000 ft</span>
+</div>
+<div class="w-40 h-[92%] relative flex flex-col items-center">
+<div class="absolute inset-x-0 top-0 h-[88%] border-x-[6px] border-slate-400 dark:border-slate-600 bg-slate-200/30 dark:bg-slate-800/20">
+<div class="absolute inset-x-0 bottom-0 h-5 bg-slate-400 dark:bg-slate-600 rounded-b-full"></div>
+</div>
+<div class="absolute inset-x-10 top-0 h-[82%] border-x-[3px] border-primary/40 dark:border-primary/60 bg-primary/5 dark:bg-primary/10">
+<div class="absolute inset-x-0 bottom-0 h-3 bg-primary/40 dark:bg-primary/60"></div>
+</div>
+<div class="absolute top-[81%] inset-x-4 h-4 bg-slate-300 dark:bg-slate-200 rounded shadow-sm z-10 border border-slate-400">
+<div class="absolute -left-2.5 top-0 size-4 bg-slate-400 rounded-full border-2 border-slate-100 dark:border-slate-900"></div>
+<div class="absolute -right-2.5 top-0 size-4 bg-slate-400 rounded-full border-2 border-slate-100 dark:border-slate-900"></div>
+</div>
+<div class="absolute top-[75%] inset-x-12 h-12 bg-gradient-to-b from-primary to-indigo-700 rounded-sm z-10 flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-xs text-white">bolt</span>
+</div>
+<div class="absolute top-[88.5%] inset-x-0 h-14 flex flex-col justify-around">
+<div class="flex justify-between w-full px-1">
+<div class="w-6 h-1 bg-primary/80 shadow-[0_0_8px_rgba(79,29,215,0.6)] rounded-sm"></div>
+<div class="w-6 h-1 bg-primary/80 shadow-[0_0_8px_rgba(79,29,215,0.6)] rounded-sm"></div>
+</div>
+<div class="flex justify-between w-full px-1">
+<div class="w-6 h-1 bg-primary/80 shadow-[0_0_8px_rgba(79,29,215,0.6)] rounded-sm"></div>
+<div class="w-6 h-1 bg-primary/80 shadow-[0_0_8px_rgba(79,29,215,0.6)] rounded-sm"></div>
+</div>
+<div class="flex justify-between w-full px-1">
+<div class="w-6 h-1 bg-primary/80 shadow-[0_0_8px_rgba(79,29,215,0.6)] rounded-sm"></div>
+<div class="w-6 h-1 bg-primary/80 shadow-[0_0_8px_rgba(79,29,215,0.6)] rounded-sm"></div>
+</div>
+</div>
+<div class="absolute top-[40%] inset-x-10 bottom-[82%] bg-primary/10 backdrop-blur-[2px]">
+<div class="absolute top-0 inset-x-0 h-px bg-primary flex items-center justify-center">
+<span class="text-[9px] text-primary font-black -mt-4 bg-white dark:bg-slate-900 px-2 rounded-full border border-primary/20">NIVEL DINÁMICO: 3,420 ft</span>
+</div>
+</div>
+</div>
+<div class="absolute right-6 top-1/2 -translate-y-1/2 space-y-5 bg-white/60 dark:bg-panel-dark/40 p-4 rounded-2xl backdrop-blur-md border border-white/40 dark:border-border-dark">
+<div class="flex items-center gap-3 group cursor-help">
+<div class="size-2.5 rounded-full bg-slate-500"></div>
+<span class="text-[10px] font-bold text-slate-600 dark:text-slate-400 group-hover:text-primary dark:group-hover:text-white transition-colors">Casing 9.625"</span>
+</div>
+<div class="flex items-center gap-3 group cursor-help">
+<div class="size-2.5 rounded-full bg-primary"></div>
+<span class="text-[10px] font-bold text-slate-600 dark:text-slate-400 group-hover:text-primary dark:group-hover:text-white transition-colors">Tubing 3.500"</span>
+</div>
+<div class="flex items-center gap-3 group cursor-help">
+<div class="size-2.5 rounded-full bg-slate-300 border border-slate-400"></div>
+<span class="text-[10px] font-bold text-slate-600 dark:text-slate-400 group-hover:text-primary dark:group-hover:text-white transition-colors">Empacadura</span>
+</div>
+<div class="flex items-center gap-3 group cursor-help">
+<div class="size-2.5 rounded-sm bg-gradient-to-r from-primary to-indigo-700"></div>
+<span class="text-[10px] font-bold text-slate-600 dark:text-slate-400 group-hover:text-primary dark:group-hover:text-white transition-colors">Bomba ESP</span>
+</div>
+</div>
+</div>
+<div class="p-8 bg-white dark:bg-panel-dark/40 border-t border-border-light dark:border-border-dark">
+<div class="grid grid-cols-2 gap-8">
+<div>
+<p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">TVD Máximo</p>
+<p class="text-base font-bold text-slate-900 dark:text-white">8,500 ft</p>
+</div>
+<div>
+<p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Int. Disparos</p>
+<p class="text-base font-bold text-slate-900 dark:text-white">8,350 - 8,400 ft</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>
